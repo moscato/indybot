@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>bkr_change</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    body {
+      position: relative;
+    }
+
+    .bg-fade {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: opacity 1s ease-in-out;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    .bg-fade.visible {
+      opacity: 1;
+    }
+
+    h1.topTxt {
+      color: #000;
+      text-align: center;
+      margin-top: 20vh;
+      font-size: 4em;
+    }
+  </style>
+</head>
+<body>
+  <div id="bg1" class="bg-fade visible"></div>
+  <div id="bg2" class="bg-fade"></div>
+  <h1 class="topTxt">CHANGE!</h1>
+
+  <script>
+    const totalImages = 7;
+    let current = 1;
+    let showingBg1 = true;
+
+    const bg1 = document.getElementById('bg1');
+    const bg2 = document.getElementById('bg2');
+
+    function updateBackground() {
+      const imageName = `bkr_${current}.png`;
+      const nextBg = showingBg1 ? bg2 : bg1;
+      const currentBg = showingBg1 ? bg1 : bg2;
+
+      nextBg.style.backgroundImage = `url('../images/${imageName}')`;
+      nextBg.classList.add('visible');
+      currentBg.classList.remove('visible');
+
+      showingBg1 = !showingBg1;
+      current++;
+      if (current > totalImages) current = 1;
+    }
+
+    // Initial load
+    bg1.style.backgroundImage = `url('../images/bkr_7.png')`;
+
+    // Update every 5 seconds (change to 60000 for 60s)
+    setInterval(updateBackground, 5000);
+  </script>
+</body>
+</html>
