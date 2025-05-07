@@ -18,7 +18,6 @@ const intents = {
     "food" : "Check out our menu! <br /><a href='https://thehulmanindy.com/' target='_blank'> thehulmanindy.com </a>",
     "hungry" : "Check out our menu! <br /><a href='https://thehulmanindy.com/' target='_blank'> thehulmanindy.com </a>",
 
-
      // breakfast
     "breakfast" : "Check out our brunch menu! <br /><a href='https://thehulmanindy.com/brunch/' target='_blank'> thehulmanindy.com </a>",
     "hungry breakfast" : "Check out our brunch menu! <br /><a href='https://thehulmanindy.com/brunch/' target='_blank'> thehulmanindy.com </a>",
@@ -30,6 +29,8 @@ const intents = {
     "hungry lunch" : "Brunch is served till 1 PM! <br /><a href='https://thehulmanindy.com/brunch/' target='_blank'> thehulmanindy.com/brunch </a>",
     "morning" : "Check out our brunch menu! <br /><a href='https://thehulmanindy.com/brunch/' target='_blank'> thehulmanindy.com/brunch </a>",
     "eggs" : "Check out our brunch menu! <br /><a href='https://thehulmanindy.com/brunch/' target='_blank'> thehulmanindy.com/brunch </a>",
+    "bacon" : "Check out our brunch menu! <br /><a href='https://thehulmanindy.com/brunch/' target='_blank'> thehulmanindy.com/brunch </a>",
+    "eggs bacon" : "Check out our brunch menu! <br /><a href='https://thehulmanindy.com/brunch/' target='_blank'> thehulmanindy.com/brunch </a>",
     
     // Dinner
     "dinner" : "Check out our Dinner menu! <br /><a href='https://thehulmanindy.com/dinner/' target='_blank'> thehulmanindy.com </a>",
@@ -40,6 +41,8 @@ const intents = {
     "tenderloin" : "Check out our Dinner menu! <br /><a href='https://thehulmanindy.com/dinner/' target='_blank'> thehulmanindy.com </a>",
     "chicken" : "Check out our Dinner menu! <br /><a href='https://thehulmanindy.com/dinner/' target='_blank'> thehulmanindy.com </a>",
     "burger" : "Check out our Dinner menu! <br /><a href='https://thehulmanindy.com/dinner/' target='_blank'> thehulmanindy.com </a>",
+    "savory" : "Check out our Dinner menu! <br /><a href='https://thehulmanindy.com/dinner/' target='_blank'> thehulmanindy.com </a>",
+    "meat" : "Check out our Dinner menu! <br /><a href='https://thehulmanindy.com/dinner/' target='_blank'> thehulmanindy.com </a>",
     
     // drinks
     "cocktail" : "Check out our drinks menu! <br /><a href='https://thehulmanindy.com/drinks-cocktails/' target='_blank'> thehulmanindy.com </a>",
@@ -73,6 +76,10 @@ const intents = {
     "hello" : "Hello! <br /> I'm Indy-bot! <br /> How can I help?",
     "hi" : "Hello! <br /> I'm Indy-bot! <br /> How can I help?",
     "hours" : "The Hulman is open from <br /> 7 AM - 1 PM & 5 - 9 PM Monday - Thursday. <br /> Open till 10 PM Friday & Saturday",
+    "open" : "The Hulman is open from <br /> 7 AM - 1 PM & 5 - 9 PM Monday - Thursday. <br /> Open till 10 PM Friday & Saturday",
+    "closed" : "The Hulman is open from <br /> 7 AM - 1 PM & 5 - 9 PM Monday - Thursday. <br /> Open till 10 PM Friday & Saturday",
+    "hulman" : "Anton 'Tony' Hulman Jr. was an American businessman from Terre Haute, Indiana, who bought the Indianapolis Motor Speedway in 1945 and brought racing back to the famous race course after a four-year hiatus following World War II",
+
 
     "from" : "INDIANAPOLIS OF COURSE! <br /> I really love this city :)",
     "history" : "Indianapolis was founded in 1820 and became the state capital of Indiana in 1825.",
@@ -80,6 +87,7 @@ const intents = {
     "weather" : "It seems nice, I would check the window though.",
     "music" : "I'll listen to just about anything with a good beat,",
     "downtown" : "Mass Ave and Fountain Square have great spots for food, drinks, and live music.",
+    "fun" : "Mass Ave and Fountain Square have great spots for food, drinks, and live music.",
     "500" : "Racing is a huge part of the city's identity! <br /> Even if you're not into racing, the energy is really cool.",
     "sports" : "we have the Colts for football and the Pacers for basketball. <br /> Indy is a great town for sports!",
     "out" : "I love walking the Cultural Trail or biking around White River State Park.",
@@ -89,7 +97,8 @@ const intents = {
     "joke" : "Why was the robot tired when it got home? <br /> It had a 'hard drive'",
     "service desk" : "Hmmm... Maybe call the front desk? <br /> Dial 0 from your room or <br /> 317-735-2527",
     "person" : "Hmmm... Maybe call the front desk? <br /> Dial 0 from your room or <br /> 317-735-2527",
-    "human" : "Hmmm... Maybe call the front desk? <br /> Dial 0 from your room or <br /> 317-735-2527"
+    "human" : "Hmmm... Maybe call the front desk? <br /> Dial 0 from your room or <br /> 317-735-2527",
+    "help" : "You can call the front desk! <br /> Dial 0 from your room or <br /> 317-735-2527"
      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 };
 
@@ -122,14 +131,14 @@ function inputCleaner(inputString) {
     const newVal = inputString.replace(/[^\w\s]/g, '');
     const wordsToExtract = [
                             'menu', 'food', 'eat', 'hungry',
-                            'breakfast', 'brunch', 'morning', 'eggs', "lunch",                               //breakfast
-                            'dinner', 'evening', 'meatloaf', 'tenderloin', 'chicken', 'burger',             // dinner
-                            'cocktail', 'cocktails', 'drink', 'drinks', 'alcohol', 'aloholic', 'beverage',  // drinks
-                            'dessert', 'desserts', 'sweet', 'sweets', 'pie', 'pudding',                     // dessert                            
-                            'coffee', 'caffeine', 'latte', 'espresso', 'cappuccino',                        // coffee
+                            'breakfast', 'brunch', 'morning', 'eggs', "lunch", "bacon",                               //breakfast
+                            'dinner', 'evening', 'meatloaf', 'tenderloin', 'chicken', 'burger', 'savory', 'meat',    // dinner
+                            'cocktail', 'cocktails', 'drink', 'drinks', 'alcohol', 'aloholic', 'beverage',          // drinks
+                            'dessert', 'desserts', 'sweet', 'sweets', 'pie', 'pudding',                            // dessert                
+                            'coffee', 'caffeine', 'latte', 'espresso', 'cappuccino',                              // coffee
 
-                            'name', 'hours', 'joke', 'hello', 'hi', 'from', 'history', 'weekend',
-                            'weather', 'music', 'downtown', '500', 'sports', 'out', 'outside', 'city', 'outdoors'
+                            'name', 'hours', 'joke', 'hello', 'hi', 'from', 'history', 'weekend', 'open', 'closed', 'hulman',
+                            'weather', 'music', 'downtown', '500', 'sports', 'out', 'outside', 'city', 'outdoors', 'fun', 'help'
                           ];
     const resultArray = [];
     
@@ -186,7 +195,7 @@ function pressed() {
     
         here.innerHTML = intentConsidered(val);
         loadDots.textContent = ' ';
-        txtIn.focus();
+        sendBtn.focus();
 /*
 
     

@@ -26,3 +26,7 @@ vegetarian / GF options?
 history
 
 
+3/5/25
+changed focus to sendbtn
+added some responses based on description / food types
+
